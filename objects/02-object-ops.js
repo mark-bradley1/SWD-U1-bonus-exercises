@@ -16,7 +16,7 @@
 */
 
 // EXAMPLE: Let's loop through the object below and print the value for each key.
-
+/*
 let sunsetDiner = {
 	name: "The Sunset Diner",
 	location: "Pleasant Pines, AZ",
@@ -71,7 +71,7 @@ for (let restaurant of restaurants) {
 	console.log(`\nNext time you take a road trip through the Southwest, don't miss ${restaurant.name} in ${restaurant.location}, best in class for its ${restaurant.cuisine} fare. Signature dishes include the mouth-watering ${restaurant.knownFor[0]}, ${restaurant.knownFor[1]}, and the delicious ${restaurant.knownFor[2]}. \nPrice rating: ${restaurant.priceRating}\n`);
 }
 
-
+*/
 /**** YOUR TURN! ****/
 
 /*
@@ -85,9 +85,37 @@ for (let restaurant of restaurants) {
 /*
 	Create two objects representing different local attractions (zoo, gardens, museums, etc), each with the following properties: name, location, adultTicketPrice, childTicketPrice, and famousFeatures (array of three strings). Be creative! Place the objects in an array.
 */
+let zoo = {
+	name: "St. Louis Zoo",
+	location: "Forest Park",
+	adultTicketPrice: 0,
+	childTicketPrice: 0,
+	famousFeatures: ["Penguins", "Train", "Polar Bears"]
+}
+
+let museum = {
+	name: "St. Louis Art Museum",
+	location: "Forest Park",
+	adultTicketPrice: 0,
+	childTicketPrice: 0,
+	famousFeatures: ["Beaux-Arts Building", "Sculpture Hall", "Famous Art"]
+}
 
 // TODO: create objects and put them in an array
+attractionArr = [zoo, museum];
 
+for (let attraction of attractionArr){
+	for (key in attraction){
+		if (Array.isArray(attraction[key])){
+			console.log("test");
+			for (let item of attraction[key]){
+				console.log(item);
+			}
+		}
+		console.log(`${key}: ${attraction[key]}`);
+		// console.log(typeof attraction[key]);
+	}
+}
 /*
 	Loop through the array, then within that for loop, use a for...in loop to grab values from each key and print them to the console. If you come across a key storing an array, print each element in the array instead of the array itself. Remember that you need a new index variable with each nested FOR loop (i, j are common).
 
