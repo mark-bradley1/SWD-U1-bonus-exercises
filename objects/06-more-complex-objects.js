@@ -77,14 +77,44 @@ console.log(groceryOrderByDepartment.dairy[0].SKU);
 console.log(groceryOrderByDepartment.produce[2].name);
 
 // TODO: Find the correct reference and print "Boneless Skinless Chicken" to the console.
-
+console.log(groceryOrderByDepartment.meats[1].name);
 
 // TODO: Find the correct reference and print "85344" to the console.
+console.log(groceryOrderByDepartment.dairy[1].SKU);
 
+for (let department in groceryOrderByDepartment){
+	for (let item of groceryOrderByDepartment[department]){
+		console.log(`${item.name} - $${item.costPerUnit} per ${item.unit}`);
+	}
+}
+
+let line = "-".repeat(50);
+let newline = "\n";
+for (let department in groceryOrderByDepartment){
+	console.log(newline + line);
+	console.log(department.toUpperCase());
+	console.log(line);
+	for (let item of groceryOrderByDepartment[department]){
+		console.log(newline + `${item.name} (SKU # ${item.SKU})`);
+		for (let quantity of item.quantities){
+			let unitText = item.unit === "each" ? '' : `-${item.unit}`;
+			let totalCost = roundToPenny(item.costPerUnit * quantity)
+			console.log(`   -  ${quantity}${unitText} ${item.package} - ${totalCost}`);
+		}
+	}
+}
+
+function roundToPenny(amount){
+	let roundedAmount = Math.round(amount * 100) / 100;
+	let amountAsString = String(roundedAmount);
+	let charsAfterDceimal = amountAsString.length - amountAsString.indexOf('.') - 1;
+	let zeroesToAdd = '0'.repeat(2 - charsAfterDceimal);
+	return "$" + amountAsString + zeroesToAdd;
+}
 
 // EXAMPLE: Print all items by name and cost per unit in this format:
 // Unsweetened Almond Milk - $0.48 per oz.
-for (let department in groceryOrderByDepartment) {
+/*for (let department in groceryOrderByDepartment) {
 	for (let item of groceryOrderByDepartment[department]) {
 		console.log(`${item.name} - $${item.costPerUnit} per ${item.unit}`);
 	}
@@ -118,3 +148,4 @@ for (let department in groceryOrderByDepartment) {
 //   - The grand total, rounded to the penny
 
 // KEEP IT DRY: Reusable helper functions will be useful here!
+*/
