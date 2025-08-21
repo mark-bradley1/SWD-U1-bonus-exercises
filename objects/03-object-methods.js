@@ -49,16 +49,18 @@ let num1 = 4;
 let num2 = 3;
 
 // EXAMPLE: Call the addTwo function by referencing the add object, not the original function itself, and print the result.
-console.log(add.doTheMath(num1, num2));
+// console.log(add.doTheMath(num1, num2));
 
 // TODO: Call the subtractTwo function by referencing the subtract object and print the result.
-
+// console.log(subtract.doTheMath(num1, num2));
 
 // TODO: Call the anonymous multiplication method in the multiple object and print the result.
-
+// console.log(multiply.doTheMath(num1, num2));
 
 // TODO: Reference the object and its property key and call all three methods with new numbers passed directly as arguments for the parameters a and b. Choose whatever numbers you want.
-
+// console.log(add.doTheMath(10, 20));
+// console.log(subtract.doTheMath(100, 90));
+// console.log(multiply.doTheMath(5674, 50987));
 
 
 /**** WRITING YOUR OWN METHODS ****/
@@ -70,23 +72,29 @@ console.log(add.doTheMath(num1, num2));
 */
 
 // TODO: write a function for the peanutMMs description
-
+function mmDescrip (){
+	return `${peanutMMs.name}, are a ${peanutMMs.type} candy that: "${peanutMMs.slogan}"`;
+}
 
 let peanutMMs = {
 	name: "Peanut M&Ms",
 	type: "chocolate",
 	slogan: "Melts in your mouth, not in your hand",
+	describeCandy: mmDescrip,
 	// TODO: add describeCandy property (method) referencing your external named function
 
 };
 
 // TODO: write a function for the skittles description
-
+function skitDescrip (){
+	return `${skittles.name} are a ${skittles.type} candy where you can: "${skittles.slogan}!"`
+}
 
 let skittles = {
 	name: "Skittles",
 	type: "fruit-flavored",
 	slogan: "Taste the rainbow",
+	describeCandy: skitDescrip,
 	// TODO: add describeCandy property (method) referencing your external function that is stored in a variable
 	
 };
@@ -95,11 +103,20 @@ let werthers = {
 	name: "Werther's Original",
 	type: "caramel",
 	slogan: "A little piece of bliss",
-	// TODO: add describeCandy property (method) as an anonymous function here inside the object... and while you're at it, mention the name and type of the candy in your sentence by referencing those properties within the object! (Hint: remember that inside an object you use "this" instead of the object name to reference its own properties.)
+	describeCandy: function (){
+		return `${this.name} is a ${this.type} of candy that is: "${this.slogan}!"`;
+	}
+	// TODO: add describeCandy property (method) as an anonymous function here inside the object... and while you're at it, mention the name and type of the 
+	// candy in your sentence by referencing those properties within the object! 
+	// (Hint: remember that inside an object you use "this" instead of the object name to reference its own properties.)
 
 };
 
 // TODO: Put all three objects in an array. Loop through to run the function for each object.
+let candyArr = [peanutMMs, skittles, werthers];
+for (let object of candyArr){
+	console.log(object.describeCandy());
+}
 
 
 /* 
