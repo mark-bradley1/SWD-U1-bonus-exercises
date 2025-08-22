@@ -106,7 +106,9 @@ for (let packageType in pantry) {
 console.log(""); // skip a line in console
 
 // TODO: Write a function that takes in an index number, prints "Items at index (x):" and then prints the element at that index of each array as you loop through the object. Use the escape character \t to indent each item for that index. If the array doesn't have anything at that index, it should be skipped without throwing an error. (Note: you don't need nested loops for this one.)
-
+for (let index in pantry) {
+	
+}
 
 // TODO: Call the function above at 2 or 3 different index numbers and check to see the results are what you expect.
 
