@@ -51,7 +51,7 @@ function searchLunchBox(item) {
 		}		
 	}
 	// If it was never found we will print something to say so
-	console.log(`\nSorry, ${item} was never found.`);
+	// console.log(`\nSorry, ${item} was never found.`);
 	return null; // Instead of returning an undefined variable
 }
 
@@ -65,7 +65,11 @@ console.log(""); // skip a line in console
  
 // TODO: Use what you've learned about how to access keys and values to loop through the object and print only values which belong to food items that are sides. No need to write this one as a function, just do the loop. Hint 1: you need to check the key names, not the values! Hint 2: Even though they don't look like it in the object, keys are stored as strings.
 
-
+for (let sides in lunchBox) {
+	if (lunchBox[sides] !== lunchBox.main) {
+		console.log(lunchBox[sides]);
+	}
+}
 
 /**** LOOPING THROUGH OBJECTS WITH ARRAYS AS VALUES ****/
 
@@ -82,17 +86,17 @@ let pantry = {
 };
 
 // Let's print a formatted list of each property and its values. We always start with the outside and work our way in. So let's set up our for...in loop first. 
-for (let packageType in pantry) {
-	console.log(`\n${packageType.toUpperCase()}`);
-	console.log("-".repeat(packageType.length));
-	// Now we will set up a regular for loop inside to handle printing each element of each array.
-	for (let foodItem of packageType) {
-		console.log(foodItem);
-	}
-}
+// for (let packageType in pantry) {
+// 	console.log(`\n${packageType.toUpperCase()}`);
+// 	console.log("-".repeat(packageType.length));
+// 	// Now we will set up a regular for loop inside to handle printing each element of each array.
+// 	for (let foodItem of packageType) {
+// 		console.log(foodItem);
+// 	}
+// }
 // Run the program to see the results in the console. Nicely formatted, right? Notice how each array had a different number of items, but we handled that by taking the length of each array, as pantry[packageType] is the correct way to refer to the value of each property.
 
-console.log(""); // skip a line in console
+// console.log(""); // skip a line in console
 
 // TODO: Write a function that takes in an index number, prints "Items at index (x):" and then prints the element at that index of each array as you loop through the object. Use the escape character \t to indent each item for that index. If the array doesn't have anything at that index, it should be skipped without throwing an error. (Note: you don't need nested loops for this one.)
 
