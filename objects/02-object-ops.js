@@ -106,14 +106,31 @@ attractionArr = [zoo, museum];
 
 for (let attraction of attractionArr){
 	for (key in attraction){
-		if (attraction[key].isArray){
-			for (i = 0; i <= attraction[key].length; i++){
-				console.log(attraction[key][0]);
+		if (Array.isArray(attraction[key])){
+			// console.log("test");
+			for (let item of attraction[key]){
+				console.log(item);
 			}
+		} else {
+			console.log(attraction[key]);
 		}
-		console.log(`${key}: ${attraction[key]}`);
 	}
+	console.log(" ");
 }
+
+// for (let attraction of attractionArr) {
+// 	for (key in attraction) {
+// 		if (Array.isArray(attraction[key])) { // array
+// 			for (let feature of attraction[key]) {
+// 				console.log(feature);
+// 			}
+// 		} else { // not an array
+// 			console.log(attraction[key]);
+// 		}
+// 	}
+// 	console.log(" ") // quick cheat to put empty line between them
+// }
+
 /*
 	Loop through the array, then within that for loop, use a for...in loop to grab values from each key and print them to the console. If you come across a key storing an array, print each element in the array instead of the array itself. Remember that you need a new index variable with each nested FOR loop (i, j are common).
 
