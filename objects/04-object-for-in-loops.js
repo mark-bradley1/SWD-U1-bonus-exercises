@@ -23,7 +23,7 @@
 	To access a value inside the loop, use the syntax objectName[key] 
 	(IMPORTANT: dot notation does not work inside a for...in loop!)
 */
-
+/* Start Comment
 // EXAMPLE: Let's set up a basic object with a few properties and then loop through them.
 let lunchBox = {
 	main: "a ham and swiss sandwich",
@@ -71,6 +71,13 @@ for (let sides in lunchBox) {
 	}
 }
 
+for (let foodItem in lunchBox) {
+	if (foodItem.includes("side")) { // handy string method
+		console.log(`Found a side - ${lunchBox[foodItem]} - yum!`);
+	}
+}
+End comment
+*/
 /**** LOOPING THROUGH OBJECTS WITH ARRAYS AS VALUES ****/
 
 /*
@@ -86,17 +93,17 @@ let pantry = {
 };
 
 // Let's print a formatted list of each property and its values. We always start with the outside and work our way in. So let's set up our for...in loop first. 
-// for (let packageType in pantry) {
-// 	console.log(`\n${packageType.toUpperCase()}`);
-// 	console.log("-".repeat(packageType.length));
-// 	// Now we will set up a regular for loop inside to handle printing each element of each array.
-// 	for (let foodItem of packageType) {
-// 		console.log(foodItem);
-// 	}
-// }
+for (let packageType in pantry) {
+	console.log(`\n${packageType.toUpperCase()}`);
+	console.log("-".repeat(packageType.length));
+	// Now we will set up a regular for loop inside to handle printing each element of each array.
+	for (let foodItem of packageType) {
+		console.log(foodItem);
+	}
+}
 // Run the program to see the results in the console. Nicely formatted, right? Notice how each array had a different number of items, but we handled that by taking the length of each array, as pantry[packageType] is the correct way to refer to the value of each property.
 
-// console.log(""); // skip a line in console
+console.log(""); // skip a line in console
 
 // TODO: Write a function that takes in an index number, prints "Items at index (x):" and then prints the element at that index of each array as you loop through the object. Use the escape character \t to indent each item for that index. If the array doesn't have anything at that index, it should be skipped without throwing an error. (Note: you don't need nested loops for this one.)
 
