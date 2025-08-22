@@ -106,14 +106,12 @@ attractionArr = [zoo, museum];
 
 for (let attraction of attractionArr){
 	for (key in attraction){
-		if (Array.isArray(attraction[key])){
-			console.log("test");
-			for (let item of attraction[key]){
-				console.log(item);
+		if (attraction[key].isArray){
+			for (i = 0; i <= attraction[key].length; i++){
+				console.log(attraction[key][0]);
 			}
 		}
 		console.log(`${key}: ${attraction[key]}`);
-		// console.log(typeof attraction[key]);
 	}
 }
 /*
